@@ -1,0 +1,22 @@
+.container {
+padding-top: 100px;
+display: flex;
+justify-content: space-between;
+
+.name {
+    font-family: 'Inter', sans-serif;
+    font-size: 52px;
+}
+
+.name2 {
+    color: rgb(255, 119, 0);
+}
+
+// .name3 {
+//     padding-left: 150px;
+// }
+    img {
+        height: 300px;
+        border-radius: 50% 50%;
+    }
+}

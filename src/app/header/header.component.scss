@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        height: 55px;
+    }
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    
+    a {
+        margin-right: 12px;
+    }
+}
