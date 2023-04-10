@@ -1,8 +1,71 @@
 .container-aboutme {
-    height: 100vh;
+    height: 70vh;
+    display: flex;
+    align-items: center;
     font-family: Poppins;
 }
 
 .text-aboutme {
-    width: 300px;
+    width: 480px;
+
+    h1 {
+        font-size: 60px;
+    }
+}
+
+.aboutme-content {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+}
+
+.container-text {
+    max-width: 600px;
+}
+
+.photo-aboutme {
+    margin-left: 60px;
+    img {
+        height: 400px;
+        width: 400px;
+        border-radius: 50% 50%;
+        object-fit: cover;
+        border: 4px solid blue;
+    }
+}
+
+
+.bg-shadow3 {
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    left: 0;
+
+    img {
+        width: 100%;
+    }
+
+}
+
+.stack-skill {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+
+    .main-stack {
+        display: flex;
+    }
+
+    .side-stack {
+        display: flex;
+        margin-top: 40px;
+    }
+
+    .stack-img {
+        display: flex;
+        align-items: center;
+        margin-right: 60px;
+    }
 }

@@ -1,0 +1,107 @@
+.container-portfolio {
+    height: 100vh;
+    font-family: Poppins;
+}
+
+.header-portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-size: 60px;
+        margin-block: 0;
+        background-color: #0f0f1e;
+        z-index: 5;
+        padding: 0 30px;
+    }
+
+    .hero-line {
+        margin-top: 45px;
+        position: absolute;
+        right: 0;
+        // width: 60px;
+        width: 75%;
+        border: 0;
+        border-top: 8px solid #4B47FF;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+}
+
+.portfolio-projects {
+    display: flex;
+
+    .my-project {
+        display: flex;
+        // align-items: center;
+
+        .margin-r {
+            margin-right: 100px;
+        }
+
+        .just-cont {
+            justify-content: end;
+        }
+
+        .project-img {
+            display: flex;
+            // justify-content: center;
+            width: 50%;
+
+            img {
+                // height: 255px;
+                width: 380px;
+            }
+        }
+    
+        .align-text {
+            text-align: right;
+        }
+
+        .project-info {
+            width: 50%;
+
+            h2 {
+                font-size: 30px;
+                color: #4B47FF;
+            }
+            
+            h3 {
+                color: green;
+            }
+
+            .buttons {
+
+                .btn-lt {
+                    padding: 15px 20px;
+                    background: blueviolet;
+                    border: none;
+                    border-radius: 10px;
+                
+                    a {
+                        font-size: 18px;
+                        font-family: Poppins;
+                        text-decoration: none;
+                        color: white;
+                    }
+                }          
+
+                .btn-gh {
+                    padding: 15px 20px;
+                    background: blueviolet;
+                    border: none;
+                    border-radius: 10px;
+                
+                    a {
+                        font-size: 18px;
+                        font-family: Poppins;
+                        text-decoration: none;
+                        color: white;
+                    }
+                }  
+            }
+        }
+    }
+}

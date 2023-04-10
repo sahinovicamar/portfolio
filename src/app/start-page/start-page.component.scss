@@ -1,26 +1,114 @@
 .container-start-page {
-    height: 100vh;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container-name-photo {
     padding-top: 100px;
     display: flex;
     justify-content: space-between;
+    height: 655px;
 
-    .name {
-        font-family: 'Inter', sans-serif;
+    .greetings-text {
+        display: flex;
+        align-items: center;
+        padding-bottom: 200px;
+    }
+
+    .greetings {
+        display: flex;
+        font-family: 'Inter';
         font-size: 52px;
     }
 
+    .name1 {
+        transform: rotate(-90deg);
+        font-size: 64px;
+        display: block;
+        height: fit-content;
+        margin-top: 40px;
+        margin-right: -8px;
+    }
+
     .name2 {
+        margin: 0;
+        font-size: 70px;
         color: rgb(255, 119, 0);
     }
 
-    // .name3 {
-    //     padding-left: 150px;
-    // }
+    .name3 {
+        margin: 0;
+        font-size: 49px;
+        font-family: 'Poppins';
+        color: white;
+    }
+
+    .photo {
+        display: flex;
+        align-items: center;
+    }
+
     img {
+        padding-bottom: 200px;
         height: 300px;
         border-radius: 50% 50%;
     }
+}
+
+.padding-side {
+    padding-right: 120px;
+    padding-left: 120px;
+}
+
+.bg-shadow {
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    right: 10%;
+    z-index: -1;
+
+    img {
+        // transform: matrix(-0.99, -0.13, -0.13, 0.99, 0, 0);
+        width: 50%;
+        height: 60vh;
+        filter: blur(46.5px);
+    }
+
+}
+
+.fast-link-con {
+    z-index: 1000;
+
+
+    .hero-line {
+        position: absolute;
+        left: 0;
+        width: 100px;
+        border: 0;
+        border-top: 8px solid #4B47FF;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .fast-link {
+        a {
+            margin-left: 30px;
+        }
+    }
+
+
+}
+
+
+.bg-shadow2 {
+    display: flex;
+    /* justify-content: end; */
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    height: 400px;
 }

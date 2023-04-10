@@ -1,11 +1,22 @@
 .container-skills {
-    height: 100vh;
+    height: 70vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-family: Poppins;
 }
 
 .skills {
     display: flex;
-    justify-content: space-around;
+    // justify-content: space-around;
+    flex-wrap: wrap;
+
+    .logo-con {
+        height: 150px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+    }
 }
 
 .gap-con {
@@ -13,18 +24,37 @@
     gap: 54px;
 }
 
-.text-skills-con {}
+.text-skills-con {
+    text-align: end;
 
-.text-skills {
-    // display: inline-block;
+    h1 {
+        font-size: 60px;
+        display: flex;
+        margin-block: 0;
+        justify-content: right;
+    }
+
+    .hero-line {
+        margin-top: 45px;
+        position: absolute;
+        right: 0;
+        width: 60px;
+        border: 0;
+        border-top: 8px solid #4B47FF;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .text-skills {
+        display: flex;
+        flex-direction: column;
+        width: 470px;
+
+        p {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+
 }
-
-
-
-// .line {
-//     width: 53px;
-//     height: 0;
-//     border: 1px solid #C4C4C4;
-//     margin: 3px;
-//     display: inline-block;
-// }
