@@ -43,7 +43,7 @@ export class ContactComponent implements OnInit {
       fd.append('mail', mailField.value);
       fd.append('message', messageField.value);
 
-      await fetch('https://amar-sahinovic.de/send_mail/send_mail.php',
+      await fetch('https://amarsahinovic.de/send_mail/send_mail.php',
         {
           method: 'POST',
           body: fd
@@ -146,12 +146,12 @@ export class ContactComponent implements OnInit {
   sectionHero() {
     document.getElementById("sectionHero").scrollIntoView();
   }
-  
+
   gotoTop() {
-    window.scroll({ 
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     });
   }
 }
