@@ -1,21 +1,23 @@
-<section>
+<section class="start-page-section" id="startPage">
+
     <div class="padding-side container-start-page">
 
         <div class="container-name-photo">
+            <div class="photo">
+                <img class="bgs1" src="/assets/img/shadows/photo_shadows.png" alt="">
+                <img class="start-picture" src="./assets/img/photo_portrait.png" alt="">
+            </div>
             <div class="greetings-text">
                 <div class="greetings">
-                    <span class="name1">
-                        I am
-                    </span>
+                    <span class="name1">I am</span>
                     <div>
                         <h1 class="name2">Amar Sahinovic</h1>
                         <h2 class="name3">FRONTEND DEVELOPER</h2>
                     </div>
                 </div>
-            </div>
-
-            <div class="photo">
-                <img src="./assets/img/photome.png" alt="">
+                <div class="lettalk">
+                    <a (click)="contact()">Let's talk!</a>
+                </div>
             </div>
         </div>
 
@@ -23,21 +25,22 @@
             <div class="hr-div">
                 <hr class="hero-line">
             </div>
-            <div class="fast-link">
-                <a href="#"><img src="./assets/img/media/linkedin.png" alt=""></a>
-                <a href="#"><img src="./assets/img/media/mail.png" alt=""></a>
-                <a href="#"><img src="./assets/img/media/github.png" alt=""></a>
+            <div class="kontakt-con">
+                <div class="fast-link">
+                    <a href="http://www.linkedin.com/in/amar-sahinovic-96a87a23a"><img
+                            src="./assets/img/media/linkedin.png" alt=""></a>
+                    <a href="mailto: kontakt@amarsahinovic.de"><img src="./assets/img/media/mail.png" alt=""></a>
+                    <a href="https://github.com/sahinovicamar"><img src="./assets/img/media/github.png" alt=""></a>
+                    <a href="mailto: kontakt@amarsahinovic.de" class="start-page-mail">kontakt@amarsahinovic.de</a>
+                </div>
+            </div>
+            <div class="scroll_down">
+                <a (click)="aboutMe()">Scroll down <img src="/assets/img/arrow-down-line.png" alt=""></a>
             </div>
         </div>
-
     </div>
 
-    <img class="bg-shadow2" src="/assets/img/Vector 8.png" alt="">
+    <img class="bg-shadow2" src="/assets/img/shadows/shadow1.png" alt="">
+
+
 </section>
-
-
-
-<app-about-me></app-about-me>
-<app-my-skills></app-my-skills>
-<app-projects></app-projects>
-<app-contact></app-contact>

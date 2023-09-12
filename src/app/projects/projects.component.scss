@@ -1,3 +1,5 @@
+@import "../../app/styles/var/scss_variables.scss";
+
 .container-portfolio {
     height: 100vh;
     font-family: Poppins;
@@ -11,7 +13,7 @@
     h1 {
         font-size: 60px;
         margin-block: 0;
-        background-color: #0f0f1e;
+        background-color: $background;
         z-index: 5;
         padding: 0 30px;
     }
@@ -20,10 +22,9 @@
         margin-top: 45px;
         position: absolute;
         right: 0;
-        // width: 60px;
         width: 75%;
         border: 0;
-        border-top: 8px solid #4B47FF;
+        border-top: 8px solid rgb(255, 119, 0);
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
@@ -41,6 +42,10 @@
             margin-right: 100px;
         }
 
+        .margin-l {
+            margin-left: 75px;
+        }
+
         .just-cont {
             justify-content: end;
         }
@@ -55,53 +60,62 @@
                 width: 380px;
             }
         }
-    
+
         .align-text {
             text-align: right;
         }
 
         .project-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             width: 50%;
 
             h2 {
                 font-size: 30px;
-                color: #4B47FF;
+                color: #FF4747;
             }
-            
+
             h3 {
-                color: green;
+                margin-block: 0;
+                color: #FA7902;
             }
 
             .buttons {
 
                 .btn-lt {
                     padding: 15px 20px;
-                    background: blueviolet;
+                    background: #FF4747;
                     border: none;
                     border-radius: 10px;
-                
+
                     a {
                         font-size: 18px;
                         font-family: Poppins;
                         text-decoration: none;
                         color: white;
                     }
-                }          
+                }
 
                 .btn-gh {
                     padding: 15px 20px;
-                    background: blueviolet;
-                    border: none;
+                    background: none;
+                    border: 1px #FF4747 solid;
                     border-radius: 10px;
-                
+                    margin-left: 80px;
+
                     a {
                         font-size: 18px;
                         font-family: Poppins;
                         text-decoration: none;
                         color: white;
                     }
-                }  
+                }
             }
         }
     }
+}
+
+@media only screen and (min-width: 1300px) {
+
 }

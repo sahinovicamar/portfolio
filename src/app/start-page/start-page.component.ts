@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartPageComponent implements OnInit {
 
-  ngOnInit() {
-  
+  constructor() { }
+
+  ngOnInit() { }
+
+  aboutMe() {
+    document.getElementById("aboutMe").scrollIntoView();
   }
+
+  contact() {
+    document.getElementById("contact").scrollIntoView();
+  }
+
 }

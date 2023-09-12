@@ -1,8 +1,130 @@
 .container-contact {
     height: 80vh;
     font-family: Poppins;
+
+    .text-contact {
+
+        h1 {
+            font-size: 60px;
+            display: flex;
+            margin-block: 0;
+        }
+
+    }
+
+    .contact-content {
+        display: flex;
+
+        .contact-text {
+            width: 50%;
+            padding-right: 150px;
+        }
+
+
+        .forms-message {
+            width: 50%;
+            margin-bottom: 90px;
+
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            textarea {
+                resize: none;
+                height: 150px;
+            }
+
+            ::placeholder {
+                color: white;
+            }
+
+            .text-inputs {
+                font-family: Poppins;
+                background: none;
+                border: 1px #FA7902 solid;
+                border-radius: 6px;
+                margin-bottom: 30px;
+                padding: 10px 20px;
+                color: white;
+            }
+
+            .btn-send-con {
+                display: flex;
+                justify-content: center;
+
+                .btn-message {
+                    padding: 15px 20px;
+                    background: blueviolet;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 18px;
+                    font-family: Poppins;
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .button-go-up {
+        display: flex;
+        justify-content: end;
+
+        img {
+            cursor: pointer;
+        }
+    }
 }
 
-.text-contact {
-    width: 300px;
+.hero-line {
+    margin-top: 45px;
+    position: absolute;
+    left: 0;
+    width: 60px;
+    border: 0;
+    border-top: 8px solid rgb(255, 119, 0);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+// .form__submit__successful {
+//     position: relative;
+//     background-color: #2E844D;
+//     position: absolute;
+//     width: 80%;
+//     height: 50px;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     margin: auto;
+//     display: flex;
+//     border-radius: 10px;
+//     padding: 20px 10px;
+
+//     .form__submit__successful__check {
+//         font-size: 42px;
+//         position: absolute;
+//     }
+
+//     .form__submit__successful__text {
+//         margin-right: auto;
+//         margin-left: auto;
+//         text-align: center;
+//     }
+// }
+
+// .form__submit__successful {
+//     transition: 0.2s ease-in-out;
+//     display: none;
+// }
+
+@media only screen and (min-width: 1300px) {
+
+    // .hero-line {
+    //     // width: 130px;
+    // }
+
+
 }

@@ -1,7 +1,8 @@
 .container-aboutme {
-    height: 70vh;
+    height: 90vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-family: Poppins;
 }
 
@@ -14,9 +15,10 @@
 }
 
 .aboutme-content {
+    width: 1440px;
     display: flex;
     align-items: center;
-    // justify-content: space-between;
+    justify-content: space-between;
 }
 
 .container-text {
@@ -25,12 +27,25 @@
 
 .photo-aboutme {
     margin-left: 60px;
+    display: flex;
+    align-items: center;
+
     img {
         height: 400px;
         width: 400px;
         border-radius: 50% 50%;
         object-fit: cover;
-        border: 4px solid blue;
+        border: 4px solid #FA7902;
+        z-index: 5;
+    }
+
+    .hero-line {
+        width: 33vw;
+        position: absolute;
+        right: 0;
+        margin-top: 0px;
+        border: 0;
+        border-top: 4px solid #FA7902;
     }
 }
 
@@ -69,3 +84,4 @@
         margin-right: 60px;
     }
 }
+
