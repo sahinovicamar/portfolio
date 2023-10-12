@@ -5,17 +5,30 @@
     display: flex;
     flex-direction: column;
     margin-top: $header-height;
+
+    @media (max-width: 1000px) {
+        height: 980px;
+    }
 }
 
 .container-name-photo {
     display: flex;
     align-items: flex-start;
+
+    @media (max-width: 1000px) {
+        height: 655px;
+    }
 }
 
 .photo {
     position: relative;
     height: 750px;
     flex: 1;
+
+    @media (max-width: 1000px) {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .bgs1 {
@@ -30,7 +43,7 @@
     z-index: 100;
 }
 
-.greetings-text {
+.desktop-text-con {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,61 +52,69 @@
     z-index: 200;
     padding-top: 250px;
     width: 750px;
+}
 
+.name-container {
+    display: flex;
+    font-size: 34px;
+    line-height: 1;
 
-    .greetings {
+    .name-con-1 {
         display: flex;
-        font-size: 52px;
-    }
-
-    .name1 {
         transform: rotate(-90deg);
-        font-size: 62px;
-        font-weight: bold;
-        display: block;
-        height: fit-content;
-        margin-top: 50px;
-        margin-right: -8px;
+        align-items: baseline;
     }
 
-    .name2 {
-        margin: 0;
-        font-size: 70px;
-        color: rgb(255, 119, 0);
-    }
-
-    .name3 {
-        margin: 0;
-        font-size: 52px;
-        color: white;
-    }
-
-    .lettalk {
+    .name-con-1 h2 {
+        margin-block: 0;
         display: flex;
         justify-content: center;
+        align-items: end;
+        font-size: 49px;
+    }
 
-        a {
-            padding: 15px 20px;
-            background: rgb(255, 119, 0);
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-family: Poppins;
-            text-decoration: none;
-            color: white;
+    .name-con-2 {
+        margin-left: -40px;
+    }
 
-            &:hover {
-                color: white;
-                cursor: pointer;
-                background-color: rgb(255, 133, 25);
-                transition: all 500ms ease-in-out;
-                transform: scale(1.1);
-            }
-        }
+    .name-con-2 h1 {
+        margin-block: 0;
+        font-size: 69px;
+    }
+
+    .name-con-2 h2 {
+        margin-block: 0;
+        color: rgb(255, 119, 0);
+        text-transform: uppercase;
+        font-weight: 500;
     }
 }
 
 
+.lettalk {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0px;
+
+    a {
+        padding: 15px 20px;
+        background: rgb(255, 119, 0);
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-family: Poppins;
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+            color: white;
+            cursor: pointer;
+            background-color: rgb(255, 133, 25);
+            transition: all 500ms ease-in-out;
+            transform: scale(1.1);
+        }
+    }
+}
 
 .fast-link-con {
     z-index: 1000;
@@ -103,8 +124,16 @@
         align-items: center;
         margin-right: 30px;
 
-        a {
+        @media (max-width: 1000px) {
             margin-left: 30px;
+        }
+
+        a {
+            margin: 0 15px;
+
+            @media (max-width: 1000px) {
+
+            }
         }
 
         .start-page-mail {
@@ -116,6 +145,27 @@
     .kontakt-con {
         display: flex;
         align-items: center;
+
+        @media (max-width: 1000px) {
+            justify-content: center;
+            // margin-left: 100px;
+        }
+    }
+}
+
+.mobile-text-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    z-index: 200;
+    padding-top: 50px;
+}
+
+.hr-div {
+    @media (max-width: 1000px) {
+        padding-top: 30px;
     }
 }
 
@@ -162,7 +212,6 @@
             transform: scale(1.1);
         }
     }
-
 }
 
 
@@ -176,8 +225,4 @@
     .bg-shadow2 {
         height: 235px;
     }
-}
-
-@media (min-height: 500px) and (min-width: 580px) {
-    /* CSS stuff */
 }

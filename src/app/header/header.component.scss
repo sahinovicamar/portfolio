@@ -3,20 +3,10 @@
 header {
     display: flex;
     position: fixed;
-    z-index: 10000;
+    z-index: 99999;
     right: 0;
     left: 0;
     top: 0;
-
-    // z-index: 99999999999;
-    // position: absolute;
-    // left: 0;
-    // right: 0;
-    // display: flex;
-    // justify-content: center;
-    // height: $header-height;
-    // position: fixed;
-    // background-color: $dark-blue-bg;
 }
 
 .navbar {
@@ -28,10 +18,8 @@ header {
     left: 0;
     right: 0;
     background-color: $background;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
     position: fixed;
+    z-index: 99999;
 
     img {
         display: flex;
@@ -56,4 +44,90 @@ header {
             cursor: pointer;
         }
     }
+}
+
+
+.burger-menu {
+    display: flex;
+
+    @media (min-width: 1000px) {
+        display: none !important;
+    }
+}
+
+
+.hamburger {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    color: inherit;
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0;
+    padding-top: 10px;
+    padding-left: 35px;
+}
+
+.hamburger .bar,
+.hamburger:after,
+.hamburger:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #FFF;
+    margin: 12px 0px;
+    transition: 0.15s ease-in-out;
+}
+
+.hamburger.is__active:before {
+    transform: rotate(-45deg) translate(-10px, 10px);
+}
+
+.hamburger.is__active:after {
+    transform: rotate(45deg) translate(-9.5px, -9.5px);
+}
+
+.hamburger.is__active .bar {
+    opacity: 0;
+}
+
+
+.mobile-navbar {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+    z-index: 9999;
+    background-color: rgba(20, 29, 47, 0.9);
+    padding-top: 240px;
+    transition: 0.2s ease-in-out;
+}
+
+
+.mobile-navbar.is__active {
+    left: 0;
+
+    @media (min-width: 993px) {
+        display: none;
+    }
+}
+
+.mobile-navbar a {
+    display: block;
+    width: 100%;
+    font-size: 28px;
+    text-decoration: none;
+    margin: 0 auto 16px;
+    text-align: center;
+    padding: 12px 16px;
+    background-color: transparent;
+    // color:;
+    cursor: pointer;
 }

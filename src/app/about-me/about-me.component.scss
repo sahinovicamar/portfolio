@@ -1,13 +1,14 @@
 .container-aboutme {
-    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Poppins;
+    padding-bottom: 200px;
 }
 
 .text-aboutme {
-    width: 480px;
+    @media (min-width: 1000px) {
+        width: 480px;
+    }
 
     h1 {
         font-size: 60px;
@@ -19,16 +20,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 1000;
 }
 
 .container-text {
-    max-width: 600px;
+    @media (min-width: 1000px) {
+        max-width: 600px;
+    }
 }
 
 .photo-aboutme {
     margin-left: 60px;
     display: flex;
     align-items: center;
+
+    @media (max-width: 1000px) {
+        display: none;
+    }
 
     img {
         height: 400px;
@@ -50,18 +58,12 @@
 }
 
 
-.bg-shadow3 {
-    display: flex;
-    justify-content: end;
-    position: absolute;
-    z-index: -1;
-    right: 0;
-    left: 0;
-
+.aboutme-shadow {
     img {
-        width: 100%;
+        position: absolute;
+        right: 0;
+        width: 200px;
     }
-
 }
 
 .stack-skill {
@@ -84,4 +86,3 @@
         margin-right: 60px;
     }
 }
-

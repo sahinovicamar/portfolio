@@ -1,22 +1,39 @@
+.myskills-section {
+    // height: 90vh;
+}
+
 .container-skills {
-    height: 90vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: Poppins;
     padding-bottom: 50px;
+    z-index: 1000;
+
+    @media (max-width: 1000px) {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
 }
 
 .skills {
     display: flex;
-    // justify-content: space-around;
     flex-wrap: wrap;
+
+    @media (max-width: 1000px) {
+        justify-content: flex-start;
+    }
 
     .logo-con {
         height: 150px;
         width: 150px;
         display: flex;
         align-items: center;
+
+        @media (max-width: 1000px) {
+            height: 122px;
+            width: 122px;
+        }
     }
 }
 
@@ -38,15 +55,16 @@
     .text-skills {
         display: flex;
         flex-direction: column;
-        width: 470px;
+
+        @media (min-width: 1000px) {
+            width: 470px;
+        }
 
         p {
             display: flex;
             justify-content: center;
         }
     }
-
-
 }
 
 .hero-line {
@@ -58,6 +76,10 @@
     border-top: 8px solid rgb(255, 119, 0);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+
+    @media (min-width: 1300px) {
+        width: 130px;
+    }
 }
 
 .lettalk {
@@ -85,11 +107,11 @@
     }
 }
 
-@media only screen and (min-width: 1300px) {
-
-    // .hero-line {
-    //     // width: 130px;
-    // }
-
-
+.myskills-shadow {
+    img {
+        position: absolute;
+        left: 0;
+        width: 200px;
+        z-index: -10;
+    }
 }

@@ -31,18 +31,22 @@ html {
 }
 
 
-.padding-side {
-    padding-right: 100px;
-    padding-left: 100px;
-}
+.container-side {
+    padding: 0 200px;
 
-@media only screen and (max-width: 1300px) {
-
-    .padding-side {
-        padding-right: 100px;
-        padding-left: 100px;
+    @media (max-width: 1300px) {
+        padding: 0 100px;
     }
-
-
 }
 
+@media (max-width: 1000px) {
+    .mobile-display {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1000px) {
+    .desktop-display {
+        display: none !important;
+    }
+}

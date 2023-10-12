@@ -1,6 +1,10 @@
 .container-contact {
-    height: 80vh;
     font-family: Poppins;
+    padding-bottom: 100px;
+
+    @media (max-width: 1000px) {
+        padding-bottom: 70px;
+    }
 
     .text-contact {
 
@@ -15,64 +19,71 @@
     .contact-content {
         display: flex;
 
+        @media (max-width: 800px) {
+            flex-direction: column;
+        }
+
         .contact-text {
             width: 50%;
             padding-right: 150px;
-        }
 
-
-        .forms-message {
-            width: 50%;
-            margin-bottom: 90px;
-
-            form {
-                display: flex;
-                flex-direction: column;
+            @media (max-width: 1000px) {
+                padding-right: 100px;
             }
 
-            textarea {
-                resize: none;
-                height: 150px;
+            @media (max-width: 800px) {
+                padding-right: 0px;
+                width: 100%;
             }
 
-            ::placeholder {
-                color: white;
-            }
-
-            .text-inputs {
-                font-family: Poppins;
-                background: none;
-                border: 1px #FA7902 solid;
-                border-radius: 6px;
-                margin-bottom: 30px;
-                padding: 10px 20px;
-                color: white;
-            }
-
-            .btn-send-con {
-                display: flex;
-                justify-content: center;
-
-                .btn-message {
-                    padding: 15px 20px;
-                    background: blueviolet;
-                    border: none;
-                    border-radius: 10px;
-                    font-size: 18px;
-                    font-family: Poppins;
-                    text-decoration: none;
-                    color: white;
-                }
-            }
         }
     }
+}
 
-    .button-go-up {
+.forms-message {
+    width: 50%;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
+
+    form {
         display: flex;
-        justify-content: end;
+        flex-direction: column;
+    }
 
-        img {
-            cursor: pointer;
+    textarea {
+        resize: none;
+        height: 150px;
+    }
+
+    ::placeholder {
+        color: white;
+    }
+
+    .text-inputs {
+        font-family: Poppins;
+        background: none;
+        border: 1px #FA7902 solid;
+        border-radius: 6px;
+        margin-bottom: 30px;
+        padding: 10px 20px;
+        color: white;
+    }
+
+    .btn-send-con {
+        display: flex;
+        justify-content: center;
+
+        .btn-message {
+            padding: 15px 20px;
+            background: blueviolet;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-family: Poppins;
+            text-decoration: none;
+            color: white;
         }
     }
 }
@@ -86,6 +97,10 @@
     border-top: 8px solid rgb(255, 119, 0);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+
+    @media (min-width: 1300px) {
+        width: 130px;
+    }
 }
 
 // .form__submit__successful {
@@ -120,11 +135,16 @@
 //     display: none;
 // }
 
-@media only screen and (min-width: 1300px) {
+.button-go-up {
+    display: flex;
+    justify-content: end;
+    padding-top: 70px;
 
-    // .hero-line {
-    //     // width: 130px;
-    // }
+    @media (max-width: 1000px) {
+        padding-top: 35px;
+    }
 
-
+    img {
+        cursor: pointer;
+    }
 }

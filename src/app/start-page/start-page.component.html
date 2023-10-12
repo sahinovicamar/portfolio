@@ -1,18 +1,24 @@
 <section class="start-page-section" id="startPage">
-
-    <div class="padding-side container-start-page">
-
+    <div class="container-side container-start-page">
         <div class="container-name-photo">
             <div class="photo">
                 <img class="bgs1" src="/assets/img/shadows/photo_shadows.png" alt="">
                 <img class="start-picture" src="./assets/img/photo_portrait.png" alt="">
             </div>
-            <div class="greetings-text">
-                <div class="greetings">
-                    <span class="name1">I am</span>
-                    <div>
-                        <h1 class="name2">Amar Sahinovic</h1>
-                        <h2 class="name3">FRONTEND DEVELOPER</h2>
+            <div class="desktop-text-con mobile-display">
+                <div class="name-container">
+                    <div class="name-con-1">
+                        <h2>
+                            I am
+                        </h2>
+                    </div>
+                    <div class="name-con-2">
+                        <h1>
+                            Amar Sahinovic
+                        </h1>
+                        <h2>
+                            Frontend Developer
+                        </h2>
                     </div>
                 </div>
                 <div class="lettalk">
@@ -20,8 +26,28 @@
                 </div>
             </div>
         </div>
-
         <div class="fast-link-con">
+
+            <div class="mobile-text-con desktop-display">
+                <div class="name-container">
+                    <div class="name-con-1">
+                        <h2>
+                            I am
+                        </h2>
+                    </div>
+                    <div class="name-con-2">
+                        <h1>
+                            Amar Sahinovic
+                        </h1>
+                        <h2>
+                            Frontend Developer
+                        </h2>
+                    </div>
+                </div>
+                <div class="lettalk">
+                    <a (click)="contact()">Let's talk!</a>
+                </div>
+            </div>
             <div class="hr-div">
                 <hr class="hero-line">
             </div>
@@ -31,16 +57,16 @@
                             src="./assets/img/media/linkedin.png" alt=""></a>
                     <a href="mailto: kontakt@amarsahinovic.de"><img src="./assets/img/media/mail.png" alt=""></a>
                     <a href="https://github.com/sahinovicamar"><img src="./assets/img/media/github.png" alt=""></a>
-                    <a href="mailto: kontakt@amarsahinovic.de" class="start-page-mail">kontakt@amarsahinovic.de</a>
+                    <a href="mailto: kontakt@amarsahinovic.de"
+                        class="start-page-mail mobile-display">kontakt@amarsahinovic.de</a>
                 </div>
             </div>
-            <div class="scroll_down">
+            <div class="scroll_down mobile-display">
                 <a (click)="aboutMe()">Scroll down <img src="/assets/img/arrow-down-line.png" alt=""></a>
             </div>
+
         </div>
     </div>
 
     <img class="bg-shadow2" src="/assets/img/shadows/shadow1.png" alt="">
-
-
 </section>
