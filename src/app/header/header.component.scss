@@ -1,30 +1,31 @@
 @import "../../app/styles/var/scss_variables.scss";
 
 header {
-    display: flex;
-    position: fixed;
-    z-index: 99999;
-    right: 0;
-    left: 0;
-    top: 0;
-}
-
-.navbar {
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    z-index: 99999999999;
     position: absolute;
     left: 0;
     right: 0;
-    background-color: $background;
+    display: flex;
+    justify-content: center;
     position: fixed;
-    z-index: 99999;
+    top: 0;
+    height: 80px;
+    background-color: $background;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     img {
         display: flex;
         align-items: center;
         height: 55px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
@@ -40,18 +41,9 @@ header {
         color: white;
 
         &:hover {
-            color: orange;
+            color: #FA7902;
             cursor: pointer;
         }
-    }
-}
-
-
-.burger-menu {
-    display: flex;
-
-    @media (min-width: 1000px) {
-        display: none !important;
     }
 }
 
@@ -59,7 +51,7 @@ header {
 .hamburger {
     position: relative;
     display: block;
-    width: 60px;
+    width: 50px;
     height: 60px;
     cursor: pointer;
     color: inherit;
@@ -70,6 +62,11 @@ header {
     padding: 0;
     padding-top: 10px;
     padding-left: 35px;
+    z-index: 99999999;
+
+    @media (max-width: 450px) {
+        width: 35px;
+    }
 }
 
 .hamburger .bar,
@@ -128,6 +125,5 @@ header {
     text-align: center;
     padding: 12px 16px;
     background-color: transparent;
-    // color:;
     cursor: pointer;
 }

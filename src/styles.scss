@@ -27,15 +27,24 @@ html {
     overflow-x: hidden;
     scroll-behavior: smooth;
     --scrollbarBG: #4d4d4d;
-    --thumbBG: #152452;
+    --thumbBG: #FA7902;
 }
 
 
 .container-side {
     padding: 0 200px;
+    width: 1440px;
 
     @media (max-width: 1300px) {
         padding: 0 100px;
+    }
+
+    @media (max-width: 1000px) {
+        padding: 0 30px;
+    }
+
+    @media (max-width: 426px) {
+        width: 90%;
     }
 }
 

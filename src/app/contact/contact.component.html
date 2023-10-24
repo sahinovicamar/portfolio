@@ -1,37 +1,69 @@
-<div id="contact" class="container-side container-contact">
-    <div class="text-contact">
-        <div class="hr-div">
-            <hr class="hero-line">
+<section id="contact" class="contact-section">
+    <div class="container-side container-contact">
+        <div class="text-contact">
+            <div class="hr-div">
+                <hr class="hero-line">
+            </div>
+            <div>
+                <h1>Contact</h1>
+            </div>
         </div>
-        <div>
-            <h1>Contact</h1>
-        </div>
-    </div>
 
-    <div class="contact-content">
-        <div class="contact-text">
-            <h2>Got a problem to solve?</h2>
-            <p>
-                Contact me through this form, I am interested in hearing you, knowing your ideas and contributing to
-                your projects with my work.
-            </p>
-            <p>
-                Need a Frontend developer? <b>Contact me!</b>
-            </p>
+        <div class="contact-content">
+            <div class="contact-text">
+                <h2>Got a problem to solve?</h2>
+                <p>
+                    Contact me through this form, I am interested in hearing you, knowing your ideas and contributing to
+                    your projects with my work.
+                </p>
+                <p>
+                    Need a Frontend developer? <b>Contact me!</b>
+                </p>
+            </div>
+            <div class="forms-message">
+
+                <form [formGroup]="contactForm" (ngSubmit)="sendMail()" #myForm>
+                  <div class="input-div" [class.red-border]="!nameValid" [class.green-border]="nameForm?.valid">
+                    <input required minlength="3" (keyup)="checkNameField()" placeholder="Your name" formControlName="nameForm" (keyup)="checkNameField()" type="text" name="name" #nameField>
+                    <img class="red-alert-img" src="assets/img/objects/input-red.png" [class.d-flex]="!nameValid">
+                    <img class="successfull-img" src="assets/img/objects/input-green.png" *ngIf="nameForm?.valid">
+                  </div>
+                  <div *ngIf="nameForm?.invalid && (nameForm?.dirty || nameForm?.touched)">
+                    <div class="alert-letters" *ngIf="nameForm?.errors?.['required']">Your name is required</div>
+                    <div class="alert-letters" *ngIf="nameForm?.errors?.['minlength']">Please write at least 3 letters</div>
+                  </div>
+              
+                  <div class="input-div" [class.red-border]= "!emailValid" [class.green-border]="emailForm?.valid">
+                    <input placeholder="Your email" formControlName="emailForm" (keyup)="checkEmailField()" required type="email" name="email" #emailField>
+                    <img class="red-alert-img" src="assets/img/objects/input-red.png" [class.d-flex]= "!emailValid">
+                    <img class="successfull-img" src="assets/img/objects/input-green.png" *ngIf="emailForm?.valid">
+                  </div>
+                  <div *ngIf="emailForm?.invalid && (emailForm?.dirty || emailForm?.touched)">
+                    <div class="alert-letters" [ngStyle]="{'top.px': 144}" *ngIf="emailForm?.errors?.['required']">Your email is required</div>
+                    <div class="alert-letters" [ngStyle]="{'top.px': 144}" *ngIf="emailForm?.errors?.['email']">Please enter a valid email address</div>
+                  </div>
+              
+                  <div class="textarea-div">
+                    <textarea required minlength="3" placeholder="Your message" formControlName="messageForm" [class.red-border]= "!messageValid" [class.green-border]="messageForm?.valid"  (keyup)="checkMessageField()" minlength="5" name="message" #messageField></textarea>
+                    <img class="red-alert-img" src="assets/img/objects/input-red.png" [class.d-flex]= "!messageValid">
+                    <img class="successfull-img" src="assets/img/objects/input-green.png" *ngIf="messageForm?.valid">
+                  </div>
+                  <div *ngIf="messageForm?.invalid && (messageForm?.dirty || messageForm?.touched)">
+                    <div class="alert-letters" [ngStyle]="{'top.px': 346}" *ngIf="messageForm?.errors?.['required']">Your message is required</div>
+                    <div class="alert-letters" [ngStyle]="{'top.px': 346}" *ngIf="messageForm?.errors?.['minlength']">Please use at least 5 letters</div>
+                  </div>
+              
+                  <button type="submit" [disabled]="!contactForm.valid" #sendButton [class.btn-hover]="formGroupValid">Send message :)</button>
+                  <div class="lds-dual-ring" *ngIf="isLoading"></div>
+                  <span class="send-message" [ngClass]="sendMessage == true ? 'd-block' : 'd-none'">Your message has been successfully sent.</span>
+                  <img class="send-message-img" src="assets/img/objects/input-green.png" [ngClass]="sendMessage == true ? 'd-block' : 'd-none'">
+                </form>
+
+            </div>
         </div>
-        <div class="forms-message">
-            <form (submit)="sendMail" ngNativeValidate #myForm>
-                <input class="text-inputs" type="text" name="name" #nameField placeholder="Your name">
-                <input class="text-inputs" type="email" name="email" #mailField placeholder="Your email">
-                <textarea class="text-inputs" name="message" #messageField cols="30" rows="10"
-                    placeholder="Your message"></textarea>
-                <div class="btn-send-con">
-                    <button class="btn-message" #sendButton>Send message :)</button>
-                </div>
-            </form>
+        <div class="button-go-up">
+            <img class="button-go" (click)="gotoTop()" src="../assets/img/goup-btn.png" alt="">
         </div>
     </div>
-    <div class="button-go-up">
-        <img (click)="gotoTop()" src="../assets/img/goup-btn.png" alt="">
-    </div>
-</div>
+</section>
+

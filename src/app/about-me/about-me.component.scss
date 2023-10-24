@@ -1,8 +1,15 @@
+.aboutme-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container-aboutme {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-bottom: 200px;
+    justify-content: space-between;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .text-aboutme {
@@ -12,11 +19,20 @@
 
     h1 {
         font-size: 60px;
+        line-height: 0;
+
+        @media (max-width: 550px) {
+            font-size: 55px;
+        }
+
+        @media (max-width: 450px) {
+            font-size: 50px;
+        }
     }
 }
 
 .aboutme-content {
-    width: 1440px;
+    // width: 1440px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,7 +46,7 @@
 }
 
 .photo-aboutme {
-    margin-left: 60px;
+    margin-right: 50px;
     display: flex;
     align-items: center;
 
@@ -83,6 +99,11 @@
     .stack-img {
         display: flex;
         align-items: center;
-        margin-right: 60px;
+        justify-content: center;
+        width: 150px;
+
+        @media (max-width: 450px) {
+            width: 70px;
+        }
     }
 }

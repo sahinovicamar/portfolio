@@ -1,152 +1,220 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
-
-  @ViewChild('myForm') myForm!: ElementRef;
   @ViewChild('nameField') nameField!: ElementRef;
-  @ViewChild('mailField') mailField!: ElementRef;
+  @ViewChild('emailField') emailField!: ElementRef;
   @ViewChild('messageField') messageField!: ElementRef;
   @ViewChild('sendButton') sendButton!: ElementRef;
-  @ViewChild('formSubmitSuccessful') formSubmitSuccessful!: ElementRef;
+  nameValid = true;
+  emailValid = true;
+  messageValid = true;
+  formGroupValid = false;
+  isLoading = false;
+  sendMessage = false;
 
-  constructor() { }
+  contactForm = new FormGroup({
+    nameForm: new FormControl('', [Validators.required, Validators.minLength(3),]),
+    emailForm: new FormControl('', [Validators.required, Validators.email]),
+    messageForm: new FormControl('', [Validators.required, Validators.minLength(5),]),
+  });
 
-  nameFieldValid = false;
-  mailFieldValid = false;
-  messageFieldValid = false;
-  formDataValid = false;
 
   ngOnInit(): void {
+    this.checkFormGroup();
   }
 
-  async sendMail() {
+
+  /**
+   * Check if the form group is valid and change the value of this.formGroupValid to change the css class of the buttton
+   *
+   */
+  checkFormGroup() {
+    if (this.contactForm?.valid) {
+      this.formGroupValid = true;
+    } else {
+      this.formGroupValid = false;
+    }
+  }
+
+  
+  /**
+   * Get the name input field from the form group to use form control
+   *
+   */
+  get nameForm() {
+    return this.contactForm.get('nameForm');
+  }
+
+
+  /**
+   * Get the email input field from the form group to use form control
+   *
+   */
+  get emailForm() {
+    return this.contactForm.get('emailForm');
+  }
+
+
+  /**
+   * Get the message text area from the form group to use form control
+   *
+   */
+  get messageForm() {
+    return this.contactForm.get('messageForm');
+  }
+
+
+  /**
+   * Get the values of the input fields, send the email with all data from the contact form and reset the form group
+   *
+   */
+  sendMail() {
+    this.isLoading = true;
     let nameField = this.nameField.nativeElement;
-    let mailField = this.mailField.nativeElement;
+    let emailField = this.emailField.nativeElement;
     let messageField = this.messageField.nativeElement;
-    let sendButton = this.sendButton.nativeElement;
+    let sendButton = this.nameField.nativeElement;
 
-    this.validateContactForm(nameField, mailField, messageField);
-
-    if (this.formDataValid) {
-      nameField.disabled = true;
-      mailField.disabled = true;
-      messageField.disabled = true;
-      sendButton.disabled = true;
-
-      let fd = new FormData();
-      fd.append('name', nameField.value);
-      fd.append('mail', mailField.value);
-      fd.append('message', messageField.value);
-
-      await fetch('https://amarsahinovic.de/send_mail/send_mail.php',
-        {
-          method: 'POST',
-          body: fd
-        }
-      );
-
-      this.reEnableForm(nameField, mailField, messageField, sendButton);
-      this.reStyleForm(nameField, mailField, messageField);
-      this.clearForm(nameField, mailField, messageField);
-      this.displayFormSubmitSuccessful();
-    }
+    this.disableFields(nameField, emailField, messageField, sendButton);
+    this.fetchData(nameField, emailField, messageField);
+    this.enableFields(nameField, emailField, messageField, sendButton);
+    this.contactForm.reset();
+    this.isLoading = false;
+    this.showTextSuccess();
+    this.checkFormGroup();
   }
 
-  validateContactForm(nameField, mailField, messageField) {
-    this.validateName(nameField);
-    this.validateMail(mailField);
-    this.validateMessage(messageField);
-    this.validateForm();
+
+  /**
+   * Send an email with all data from the input fields
+   *
+   * @param nameField - This is the name input field
+   * @param emailField - This is the email input field
+   * @param messageField - This is the message input field
+   */
+  async fetchData(nameField: any, emailField: any, messageField: any) {
+    let fd = new FormData();
+    fd.append('name', nameField.value);
+    fd.append('email', emailField.value);
+    fd.append('message', messageField.value);
+    await fetch('https://amarsahinovic.de/send_mail/send_mail.php',
+      {
+        method: 'POST',
+        body: fd,
+      }
+    );
   }
 
-  validateName(nameField) {
-    if (nameField.value.length >= 2 && nameField.value.length <= 50) {
-      this.nameFieldValid = true;
-    } else { this.nameFieldValid = false; }
-  }
 
-  validateMail(mailField) {
-    if (mailField.value.includes("@")) {
-      const mailFieldArray = mailField.value.split("@");
-      if (mailFieldArray[0].length >= 2 && mailFieldArray[1].includes(".")) {
-        const mailFieldAfterAtArray = mailFieldArray[1].split(".");
-        if (mailFieldAfterAtArray[0].length >= 2 && mailFieldAfterAtArray[1].length >= 2) {
-          this.mailFieldValid = true;
-        } else { this.mailFieldValid = false; }
-      } else { this.mailFieldValid = false; }
-    } else { this.mailFieldValid = false; }
-  }
-
-  validateMessage(messageField) {
-    if (messageField.value.length >= 10 && messageField.value.length <= 1000) {
-      this.messageFieldValid = true;
-    } else { this.messageFieldValid = false; }
-  }
-
-  validateForm() {
-    if (this.nameFieldValid && this.mailFieldValid && this.messageFieldValid) {
-      this.formDataValid = true;
-    } else {
-      this.formDataValid = false;
-    }
-    this.formValidationFeedback();
-  }
-
-  formValidationFeedback() {
-    this.formValidationToggleCSSClass(this.nameField, this.nameFieldValid);
-    this.formValidationToggleCSSClass(this.mailField, this.mailFieldValid);
-    this.formValidationToggleCSSClass(this.messageField, this.messageFieldValid);
-  }
-
-  formValidationToggleCSSClass(field, isValid) {
-    if (isValid) {
-      field.nativeElement.classList.add('textfields__valid');
-      field.nativeElement.classList.remove('textfields__invalid');
-    } else {
-      field.nativeElement.classList.add('textfields__invalid');
-      field.nativeElement.classList.remove('textfields__valid');
-    }
-  }
-
-  reEnableForm(nameField, mailField, messageField, sendButton) {
-    nameField.disabled = false;
-    mailField.disabled = false;
-    messageField.disabled = false;
-    sendButton.disabled = false;
-  }
-
-  reStyleForm(nameField, mailField, messageField) {
-    nameField.classList.remove('textfields__valid');
-    nameField.classList.remove('textfields__invalid');
-    mailField.classList.remove('textfields__valid');
-    mailField.classList.remove('textfields__invalid');
-    messageField.classList.remove('textfields__valid');
-    messageField.classList.remove('textfields__invalid');
-  }
-
-  clearForm(nameField, mailField, messageField) {
-    nameField.value = "";
-    mailField.value = "";
-    messageField.value = "";
-  }
-
-  displayFormSubmitSuccessful() {
-    const formSubmitSuccessful = this.formSubmitSuccessful.nativeElement;
-    formSubmitSuccessful.classList.toggle('is__active');
+  /**
+   * Show a text that the message was successfully sended
+   *
+   */
+  showTextSuccess() {
+    this.sendMessage = true;
     setTimeout(() => {
-      formSubmitSuccessful.classList.toggle('is__active');
+      this.sendMessage = false;
     }, 2000);
   }
 
-  sectionHero() {
-    document.getElementById("sectionHero").scrollIntoView();
+
+  /**
+   * Disable all input fields and the button
+   *
+   * @param nameField - This is the name input field
+   * @param emailField - This is the email input field
+   * @param messageField - This is the message input field
+   * @param sendButton - This is the "send message" button
+   */
+  disableFields(nameField: any, emailField: any, messageField: any, sendButton: any) {
+    nameField.disabled = true;
+    emailField.disabled = true;
+    messageField.disabled = true;
+    sendButton.disabled = true;
   }
 
+
+  /**
+   * Disable all input fields and the button
+   *
+   * @param nameField - This is the name input field
+   * @param emailField - This is the email input field
+   * @param messageField - This is the message input field
+   * @param sendButton - This is the "send message" button
+   */
+  enableFields(nameField: any, emailField: any, messageField: any, sendButton: any) {
+    nameField.disabled = false;
+    emailField.disabled = false;
+    messageField.disabled = false;
+    sendButton.disabled = false;
+    nameField.value = '';
+    emailField.value = '';
+    messageField.value = '';
+  }
+
+
+  /**
+   * Check if the name input field is dirty or touched and change the value of this.nameValid
+   *
+   */
+  checkNameField() {
+    if (
+      this.nameForm?.invalid &&
+      (this.nameForm?.dirty || this.nameForm?.touched)
+    ) {
+      this.nameValid = false;
+    } else {
+      this.nameValid = true;
+    }
+    this.checkFormGroup();
+  }
+
+
+  /**
+   * Check if the email input field is dirty or touched and change the value of this.emailValid
+   *
+   */
+  checkEmailField() {
+    if (
+      this.emailForm?.invalid &&
+      (this.emailForm?.dirty || this.emailForm?.touched)
+    ) {
+      this.emailValid = false;
+    } else {
+      this.emailValid = true;
+    }
+    this.checkFormGroup();
+  }
+
+
+  /**
+   * Check if the message input field is dirty or touched and change the value of this.messageValid
+   *
+   */
+  checkMessageField() {
+    if (
+      this.messageForm?.invalid &&
+      (this.messageForm?.dirty || this.messageForm?.touched)
+    ) {
+      this.messageValid = false;
+    } else {
+      this.messageValid = true;
+    }
+    this.checkFormGroup();
+  }
+
+
+  /**
+   * Scroll to the top of the website
+   *
+   */
   gotoTop() {
     window.scroll({
       top: 0,
